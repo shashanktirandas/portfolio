@@ -1,0 +1,848 @@
+
+.sketchbook-page {
+  --sb-paper: #F2EFE6;
+  --sb-ink: #252B25;
+  --sb-forest: #35483A;
+  --sb-copper: #9B644A;
+  --sb-sage: #DDE3D5;
+  --sb-muted: #77796E;
+  --sb-line: rgba(37, 43, 37, 0.17);
+
+  background: var(--sb-paper);
+  color: var(--sb-ink);
+  font-family: inherit;
+  overflow: hidden;
+}
+
+.sketchbook-page *,
+.sketchbook-page *::before,
+.sketchbook-page *::after {
+  box-sizing: border-box;
+}
+
+.sketchbook-page a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.sketchbook-page button {
+  font: inherit;
+}
+
+.sketchbook-page h1,
+.sketchbook-page h2,
+.sketchbook-page h3 {
+  font-family: "Instrument Serif", Georgia, serif;
+  font-weight: 400;
+  letter-spacing: -0.04em;
+}
+
+.sketchbook-page h1 em,
+.sketchbook-page h2 em,
+.sketchbook-page h3 em {
+  color: var(--sb-copper);
+  font-weight: 400;
+}
+
+.sketchbook-header,
+.sketchbook-gallery {
+  width: min(100% - 96px, 1320px);
+  margin-inline: auto;
+}
+
+/* HERO */
+
+.sketchbook-header {
+  padding-top: 30px;
+}
+
+.sketchbook-topline,
+.sketchbook-art-top,
+.sketchbook-art-bottom,
+.sketchbook-hero-footer,
+.sketchbook-section-heading,
+.sketchbook-card-caption,
+.sketchbook-footer-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.sketchbook-topline {
+  gap: 15px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--sb-line);
+}
+
+.sketchbook-eyebrow,
+.sketchbook-edition,
+.sketchbook-kicker,
+.sketchbook-art-top,
+.sketchbook-art-bottom,
+.sketchbook-hero-footer,
+.sketchbook-count,
+.sketchbook-card-number,
+.sketchbook-card-caption span,
+.sketchbook-paper-label,
+.sketchbook-paper-footer,
+.sketchbook-stamp,
+.sketchbook-empty-note,
+.sketchbook-footer-bottom {
+  font-family: "DM Sans", Arial, sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+}
+
+.sketchbook-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.sketchbook-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--sb-forest);
+}
+
+.sketchbook-edition {
+  color: var(--sb-muted);
+  text-align: right;
+}
+
+.sketchbook-hero {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  align-items: center;
+  gap: clamp(35px, 8vw, 115px);
+  padding-block: clamp(70px, 9vw, 125px);
+}
+
+.sketchbook-kicker {
+  display: inline-block;
+  color: var(--sb-copper);
+  margin-bottom: 22px;
+}
+
+.sketchbook-hero-copy h1 {
+  font-size: clamp(65px, 8.5vw, 115px);
+  line-height: 0.91;
+  margin: 0 0 30px;
+}
+
+.sketchbook-hero-copy h1 em {
+  color: var(--sb-forest);
+}
+
+.sketchbook-hero-copy > p {
+  max-width: 455px;
+  color: #62665B;
+  font-size: 14px;
+  line-height: 1.95;
+  margin-bottom: 28px;
+}
+
+.sketchbook-scroll {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding-block: 10px;
+  border-bottom: 1px solid var(--sb-line);
+  font-size: 12px;
+  font-weight: 600;
+  transition: color 180ms ease;
+}
+
+.sketchbook-scroll:hover {
+  color: var(--sb-copper);
+}
+
+/* DECORATIVE PAPER ILLUSTRATION */
+
+.sketchbook-hero-art {
+  width: 100%;
+  max-width: 490px;
+  justify-self: end;
+  position: relative;
+}
+
+.sketchbook-art-top,
+.sketchbook-art-bottom {
+  color: var(--sb-muted);
+  font-size: 9px;
+  gap: 12px;
+}
+
+.sketchbook-art-top {
+  padding-bottom: 15px;
+}
+
+.sketchbook-art-bottom {
+  padding-top: 15px;
+  border-top: 1px solid var(--sb-line);
+}
+
+.sketchbook-paper-sheet {
+  position: relative;
+  min-height: 420px;
+  padding: 23px;
+  background: #E5E1D5;
+  border: 1px solid rgba(37, 43, 37, 0.08);
+  box-shadow: 9px 10px 0 rgba(53, 72, 58, 0.08);
+  transform: rotate(1.5deg);
+}
+
+.sketchbook-paper-label {
+  color: var(--sb-muted);
+  font-size: 9px;
+}
+
+.sketchbook-doodle {
+  position: absolute;
+  inset: 47px 20px 50px;
+  display: grid;
+  place-items: center;
+  color: var(--sb-forest);
+}
+
+.sketchbook-doodle svg {
+  width: min(100%, 290px);
+  height: auto;
+}
+
+.sketchbook-paper-footer {
+  position: absolute;
+  bottom: 21px;
+  left: 23px;
+  right: 23px;
+  color: var(--sb-muted);
+  font-size: 8px;
+}
+
+.sketchbook-stamp {
+  position: absolute;
+  right: -16px;
+  bottom: 42px;
+  display: grid;
+  place-content: center;
+  width: 96px;
+  height: 96px;
+  border: 1px solid var(--sb-copper);
+  border-radius: 50%;
+  background: var(--sb-paper);
+  color: var(--sb-copper);
+  font-size: 9px;
+  line-height: 1.7;
+  text-align: center;
+  transform: rotate(10deg);
+}
+
+.sketchbook-hero-footer {
+  gap: 15px;
+  padding-block: 18px;
+  border-top: 1px solid var(--sb-line);
+  color: var(--sb-muted);
+}
+
+/* GALLERY */
+
+.sketchbook-gallery {
+  padding-block: clamp(75px, 9vw, 120px);
+  border-top: 1px solid var(--sb-line);
+}
+
+.sketchbook-section-heading {
+  align-items: end;
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.sketchbook-section-heading h2 {
+  font-size: clamp(45px, 5.5vw, 72px);
+  line-height: 0.98;
+  margin: 0;
+}
+
+.sketchbook-section-heading h2 em {
+  color: var(--sb-forest);
+}
+
+.sketchbook-count {
+  flex-shrink: 0;
+  color: var(--sb-muted);
+  font-size: 9px;
+  padding-bottom: 7px;
+}
+
+.sketchbook-filters {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 9px;
+  padding-bottom: 27px;
+}
+
+.sketchbook-filter {
+  padding: 10px 15px;
+  border: 1px solid var(--sb-line);
+  border-radius: 30px;
+  background: transparent;
+  color: var(--sb-ink);
+  cursor: pointer;
+  font-size: 11px !important;
+  transition:
+    background 180ms ease,
+    color 180ms ease,
+    border-color 180ms ease;
+}
+
+.sketchbook-filter:hover,
+.sketchbook-filter.is-active {
+  background: var(--sb-forest);
+  color: var(--sb-paper);
+  border-color: var(--sb-forest);
+}
+
+/* ARTWORK CARDS */
+
+.sketchbook-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 28px 19px;
+}
+
+.sketchbook-card {
+  position: relative;
+  min-width: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--sb-ink);
+  text-align: left;
+  cursor: pointer;
+}
+
+.sketchbook-card-number {
+  display: block;
+  margin-bottom: 11px;
+  color: var(--sb-muted);
+  font-size: 9px;
+}
+
+.sketchbook-card-image {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 4 / 5;
+  background: #E6E3D8;
+}
+
+.sketchbook-card-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: transform 300ms ease;
+}
+
+.sketchbook-card:hover .sketchbook-card-image img {
+  transform: scale(1.025);
+}
+
+.sketchbook-card-overlay {
+  position: absolute;
+  inset: auto 0 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 17px;
+  background: rgba(37, 43, 37, 0.91);
+  color: var(--sb-paper);
+  font-family: "DM Sans", Arial, sans-serif;
+  font-size: 9px;
+  letter-spacing: 0.12em;
+  opacity: 0;
+  transform: translateY(8px);
+  transition:
+    opacity 200ms ease,
+    transform 200ms ease;
+}
+
+.sketchbook-card:hover .sketchbook-card-overlay,
+.sketchbook-card:focus-visible .sketchbook-card-overlay {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.sketchbook-card-caption {
+  align-items: flex-start;
+  gap: 12px;
+  padding-top: 15px;
+}
+
+.sketchbook-card-caption span {
+  display: block;
+  color: var(--sb-copper);
+  font-size: 9px;
+  text-transform: uppercase;
+}
+
+.sketchbook-card-caption h3 {
+  font-size: 27px;
+  line-height: 1.1;
+  margin: 7px 0 0;
+}
+
+.sketchbook-card-arrow {
+  margin-top: 3px;
+  flex-shrink: 0;
+  transition: transform 180ms ease;
+}
+
+.sketchbook-card:hover .sketchbook-card-arrow {
+  transform: translate(2px, -2px);
+}
+
+/* EMPTY STATE */
+
+.sketchbook-empty {
+  min-height: 400px;
+  padding: 55px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: #E9E6DC;
+}
+
+.sketchbook-empty-symbol {
+  display: grid;
+  place-items: center;
+  width: 64px;
+  height: 64px;
+  margin-bottom: 25px;
+  border: 1px solid var(--sb-line);
+  border-radius: 50%;
+  color: var(--sb-forest);
+}
+
+.sketchbook-empty h3 {
+  font-size: clamp(38px, 5vw, 54px);
+  line-height: 0.98;
+  margin: 0 0 20px;
+}
+
+.sketchbook-empty h3 em {
+  color: var(--sb-forest);
+}
+
+.sketchbook-empty > p {
+  max-width: 450px;
+  color: #62665B;
+  font-size: 13px;
+  line-height: 1.9;
+  margin-bottom: 25px;
+}
+
+.sketchbook-empty-note {
+  color: var(--sb-muted);
+  font-size: 8px;
+  line-height: 1.8;
+}
+
+/* PERSONAL NOTE */
+
+.sketchbook-note {
+  width: min(100% - 96px, 780px);
+  margin: 0 auto;
+  padding: clamp(60px, 9vw, 100px) 25px;
+  text-align: center;
+  border-top: 1px solid var(--sb-line);
+}
+
+.sketchbook-note h2 {
+  font-size: clamp(48px, 6.5vw, 76px);
+  line-height: 0.98;
+  margin: 0 0 24px;
+}
+
+.sketchbook-note h2 em {
+  color: var(--sb-forest);
+}
+
+.sketchbook-note > p {
+  max-width: 480px;
+  margin: 0 auto;
+  color: #62665B;
+  font-size: 13px;
+  line-height: 1.95;
+}
+
+/* FOOTER */
+
+.sketchbook-footer {
+  padding: clamp(60px, 8vw, 100px) max(48px, calc((100% - 1320px) / 2)) 24px;
+  background: var(--sb-forest);
+  color: var(--sb-paper);
+}
+
+.sketchbook-footer > div:first-child {
+  margin-bottom: 30px;
+}
+
+.sketchbook-footer .sketchbook-kicker {
+  color: #D4B09B;
+}
+
+.sketchbook-footer h2 {
+  font-size: clamp(47px, 6.5vw, 79px);
+  line-height: 0.98;
+  margin: 0;
+}
+
+.sketchbook-footer h2 em {
+  color: #D8B09A;
+}
+
+.sketchbook-footer-links {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.sketchbook-footer-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 17px;
+  min-height: 50px;
+  padding: 14px 18px;
+  background: var(--sb-paper);
+  color: var(--sb-forest) !important;
+  font-size: 12px;
+  font-weight: 600;
+  transition: background 180ms ease;
+}
+
+.sketchbook-footer-button:hover {
+  background: white;
+}
+
+.sketchbook-back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  font-size: 12px;
+}
+
+.sketchbook-back-link:hover {
+  color: #D8B09A;
+}
+
+.sketchbook-footer-bottom {
+  gap: 15px;
+  margin-top: clamp(60px, 8vw, 90px);
+  padding-top: 18px;
+  border-top: 1px solid rgba(242, 239, 230, 0.22);
+  color: rgba(242, 239, 230, 0.7);
+  font-size: 9px;
+}
+
+.sketchbook-footer-bottom a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.sketchbook-footer-bottom a:hover {
+  color: white;
+}
+
+/* FULL-SCREEN ARTWORK VIEWER */
+
+.sketchbook-viewer {
+  position: fixed;
+  z-index: 1000;
+  inset: 0;
+  padding: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  background: rgba(25, 29, 25, 0.96);
+  color: var(--sb-paper);
+}
+
+.sketchbook-viewer-close {
+  position: absolute;
+  top: 20px;
+  right: 22px;
+  display: grid;
+  place-items: center;
+  width: 45px;
+  height: 45px;
+  border: 1px solid rgba(242, 239, 230, 0.35);
+  border-radius: 50%;
+  background: transparent;
+  color: var(--sb-paper);
+  cursor: pointer;
+}
+
+.sketchbook-viewer-nav {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 43px;
+  height: 43px;
+  border: 1px solid rgba(242, 239, 230, 0.35);
+  border-radius: 50%;
+  background: transparent;
+  color: var(--sb-paper);
+  cursor: pointer;
+}
+
+.sketchbook-viewer-nav:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.sketchbook-viewer-content {
+  min-width: 0;
+  max-width: min(900px, 78vw);
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+}
+
+.sketchbook-viewer-content img {
+  display: block;
+  max-width: 100%;
+  max-height: 72vh;
+  object-fit: contain;
+}
+
+.sketchbook-viewer-caption {
+  width: 100%;
+  text-align: center;
+}
+
+.sketchbook-viewer-caption > span {
+  color: #D8B09A;
+  font-family: "DM Sans", Arial, sans-serif;
+  font-size: 9px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.sketchbook-viewer-caption h2 {
+  font-size: 31px;
+  margin: 7px 0;
+}
+
+.sketchbook-viewer-caption p {
+  color: rgba(242, 239, 230, 0.75);
+  font-size: 12px;
+  line-height: 1.8;
+  margin: 0;
+}
+
+/* ACCESSIBILITY */
+
+.sketchbook-page a:focus-visible,
+.sketchbook-page button:focus-visible {
+  outline: 2px solid var(--sb-copper);
+  outline-offset: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sketchbook-page *,
+  .sketchbook-page *::before,
+  .sketchbook-page *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}
+
+/* TABLET */
+
+@media (max-width: 900px) {
+  .sketchbook-header,
+  .sketchbook-gallery {
+    width: calc(100% - 48px);
+  }
+
+  .sketchbook-hero {
+    grid-template-columns: 1fr 0.9fr;
+    gap: 28px;
+  }
+
+  .sketchbook-hero-copy h1 {
+    font-size: clamp(56px, 7.5vw, 80px);
+  }
+
+  .sketchbook-paper-sheet {
+    min-height: 350px;
+  }
+
+  .sketchbook-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .sketchbook-footer {
+    padding-inline: 24px;
+  }
+}
+
+/* MOBILE */
+
+@media (max-width: 640px) {
+  .sketchbook-header,
+  .sketchbook-gallery {
+    width: calc(100% - 36px);
+  }
+
+  .sketchbook-header {
+    padding-top: 20px;
+  }
+
+  .sketchbook-eyebrow,
+  .sketchbook-edition {
+    font-size: 8px;
+  }
+
+  .sketchbook-edition {
+    max-width: 125px;
+  }
+
+  .sketchbook-hero {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    padding-block: 60px;
+  }
+
+  .sketchbook-hero-copy h1 {
+    font-size: clamp(61px, 14vw, 85px);
+  }
+
+  .sketchbook-hero-copy > p {
+    font-size: 13px;
+  }
+
+  .sketchbook-paper-sheet {
+    min-height: 350px;
+  }
+
+  .sketchbook-hero-footer {
+    font-size: 8px;
+    gap: 12px;
+  }
+
+  .sketchbook-gallery {
+    padding-block: 65px;
+  }
+
+  .sketchbook-section-heading h2 {
+    font-size: clamp(40px, 10vw, 56px);
+  }
+
+  .sketchbook-grid {
+    grid-template-columns: 1fr;
+    gap: 27px;
+  }
+
+  .sketchbook-card-image {
+    aspect-ratio: 4 / 4.5;
+  }
+
+  .sketchbook-card-overlay {
+    opacity: 1;
+    transform: none;
+    padding: 13px;
+  }
+
+  .sketchbook-card-caption h3 {
+    font-size: 29px;
+  }
+
+  .sketchbook-empty {
+    min-height: 360px;
+    padding-inline: 18px;
+  }
+
+  .sketchbook-note {
+    width: calc(100% - 36px);
+    padding-block: 65px;
+  }
+
+  .sketchbook-note h2 {
+    font-size: clamp(47px, 12vw, 65px);
+  }
+
+  .sketchbook-footer {
+    padding: 65px 18px 20px;
+  }
+
+  .sketchbook-footer h2 {
+    font-size: clamp(45px, 11vw, 65px);
+  }
+
+  .sketchbook-footer-links {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  .sketchbook-footer-bottom {
+    font-size: 8px;
+  }
+
+  .sketchbook-viewer {
+    padding: 65px 12px 20px;
+    gap: 8px;
+  }
+
+  .sketchbook-viewer-nav {
+    width: 32px;
+    height: 32px;
+  }
+
+  .sketchbook-viewer-content {
+    max-width: calc(100vw - 100px);
+  }
+
+  .sketchbook-viewer-content img {
+    max-height: 67vh;
+  }
+
+  .sketchbook-viewer-caption h2 {
+    font-size: 25px;
+  }
+}
+
+@media (max-width: 360px) {
+  .sketchbook-header,
+  .sketchbook-gallery {
+    width: calc(100% - 28px);
+  }
+
+  .sketchbook-hero-copy h1 {
+    font-size: 55px;
+  }
+
+  .sketchbook-viewer {
+    gap: 5px;
+  }
+
+  .sketchbook-viewer-nav {
+    width: 27px;
+    height: 27px;
+  }
+
+  .sketchbook-viewer-content {
+    max-width: calc(100vw - 80px);
+  }
+}
