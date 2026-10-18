@@ -293,11 +293,16 @@ export default async function ProjectDetailPage({
               
                 
 {/* eslint-disable-next-line @next/next/no-img-element */}
-<img
+
+<Image
   src={image.src}
   alt={image.alt || `${project.name} screenshot ${index + 1}`}
+  width={1200}
+  height={800}
+  sizes="(max-width: 768px) 100vw, 50vw"
   loading="lazy"
 />
+
 
                 {image.caption && <figcaption>{image.caption}</figcaption>}
               </figure>
