@@ -1248,74 +1248,138 @@ export default function HomePage() {
 
 
 
-        {/* Featured project */}
-        <section className="featured-section">
-          <div className="section-heading">
-            <SectionLabel number="01">Featured project</SectionLabel>
-            <Link href="/projects" className="text-link">
-              View all work <ArrowUpRight size={15} />
-            </Link>
-          </div>
+{/* Featured project */}
+<section className="featured-section">
+  <div className="section-heading">
+    <SectionLabel number="01">Featured project</SectionLabel>
+    <Link href="/projects" className="text-link">
+      View all work <ArrowUpRight size={15} />
+    </Link>
+  </div>
 
-          {featuredProject ? (
-            <article className="featured-project">
-              <div className="featured-copy">
-                <p className="project-kicker">
-                  {featuredProject.category.toUpperCase()}
-                </p>
-                <h2>{featuredProject.name}</h2>
-                <p className="featured-subtitle">
-                  {featuredProject.tagline || featuredProject.summary || "A project built with purpose."}
-                </p>
-                <p className="project-description">
-                  {featuredProject.description || featuredProject.summary || featuredProject.tagline || "Explore the project and its design decisions."}
-                </p>
-                <div className="tag-list">
-                  {(featuredProject.technologies ?? []).map((tag) => (
-                    <span className="tech-tag" key={tag}>{tag}</span>
-                  ))}
-                </div>
-                <div className="hero-actions">
-                  <Link href={`/projects/${featuredProject.slug}`} className="button button-primary">
-                    Explore project <ArrowUpRight size={16} />
-                  </Link>
-                  {featuredProject.liveUrl && (
-                    <a href={featuredProject.liveUrl} className="button button-secondary" target="_blank" rel="noopener noreferrer">
-                      Visit live site <ArrowUpRight size={16} />
-                    </a>
-                  )}
-                </div>
-              </div>
+  {featuredProject ? (
+    <article className="featured-project">
+      <div className="featured-copy">
+        <p className="project-kicker">
+          {featuredProject.category.toUpperCase()}
+        </p>
 
-              <Link href={`/projects/${featuredProject.slug}`} className="featured-visual" aria-label={`Explore ${featuredProject.name} case study`}>
-                <BotanicalLeaves className="featured-botanical" />
-                <div className="mock-browser">
-                  <div className="browser-bar">
-                    <span className="browser-brand">{featuredProject.name}</span>
-                    <span>Overview</span>
-                    <span>Details</span>
-                    <span className="browser-pill">Explore</span>
-                  </div>
-                  <div className="browser-content">
-                    <span className="browser-kicker">{featuredProject.category.toUpperCase()}</span>
-                    <span className="browser-headline">{featuredProject.name}</span>
-                    <span className="browser-caption">
-                      {featuredProject.tagline || featuredProject.summary || "Ideas made into something real."}
-                    </span>
-                    <span className="browser-cta">Explore project ↗</span>
-                    <div className="brd-preview-mark" aria-hidden="true">
-                      <span>{featuredProject.name}</span>
-                      <Code2 size={25} strokeWidth={1.2} />
-                    </div>
-                  </div>
-                </div>
-                <span className="image-caption">A closer look at the project <ArrowUpRight size={13} /></span>
-              </Link>
-            </article>
-          ) : (
-            <p className="project-description">Loading featured project...</p>
+        <h2>{featuredProject.name}</h2>
+
+        <p className="featured-subtitle">
+          {featuredProject.tagline ||
+            featuredProject.summary ||
+            "A project built with purpose."}
+        </p>
+
+        <p className="project-description">
+          {featuredProject.description ||
+            featuredProject.summary ||
+            featuredProject.tagline ||
+            "Explore the project and its design decisions."}
+        </p>
+
+        <div className="tag-list">
+          {(featuredProject.technologies ?? []).map((tag) => (
+            <span className="tech-tag" key={tag}>
+              {tag}
+            </span>
+          ))}
+        </div>
+
+        <div className="hero-actions">
+          <Link
+            href={`/projects/${featuredProject.slug}`}
+            className="button button-primary"
+          >
+            Explore project <ArrowUpRight size={16} />
+          </Link>
+
+          {featuredProject.liveUrl && (
+            <a
+              href={featuredProject.liveUrl}
+              className="button button-secondary"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Visit live site <ArrowUpRight size={16} />
+            </a>
           )}
-        </section>
+        </div>
+      </div>
+
+      <Link
+        href={`/projects/${featuredProject.slug}`}
+        className="featured-visual"
+        aria-label={`Explore ${featuredProject.name} case study`}
+      >
+        <BotanicalLeaves className="featured-botanical" />
+
+        {featuredProject.coverImage?.src ? (
+          <Image
+            src={featuredProject.coverImage.src}
+            alt={
+              featuredProject.coverImage.alt ||
+              `${featuredProject.name} website preview`
+            }
+            fill
+            sizes="(max-width: 760px) 100vw, 48vw"
+            className="featured-project-image"
+          />
+        ) : (
+          <div className="mock-browser">
+            <div className="browser-bar">
+              <span className="browser-brand">
+                {featuredProject.name}
+              </span>
+              <span>Overview</span>
+              <span>Details</span>
+              <span className="browser-pill">Explore</span>
+            </div>
+
+            <div className="browser-content">
+              <span className="browser-kicker">
+                {featuredProject.category.toUpperCase()}
+              </span>
+
+              <span className="browser-headline">
+                {featuredProject.name}
+              </span>
+
+              <span className="browser-caption">
+                {featuredProject.tagline ||
+                  featuredProject.summary ||
+                  "Ideas made into something real."}
+              </span>
+
+              <span className="browser-cta">
+                Explore project ↗
+              </span>
+
+              <div
+                className="brd-preview-mark"
+                aria-hidden="true"
+              >
+                <span>{featuredProject.name}</span>
+                <Code2 size={25} strokeWidth={1.2} />
+              </div>
+            </div>
+          </div>
+        )}
+
+        <span className="image-caption">
+          A closer look at the project{" "}
+          <ArrowUpRight size={13} />
+        </span>
+      </Link>
+    </article>
+  ) : (
+    <p className="project-description">
+      Loading featured project...
+    </p>
+  )}
+</section>
+
 
         {/* Other projects */}
 
@@ -1666,8 +1730,8 @@ export default function HomePage() {
 
   <a
 
-    href="https://www\.linkedin.com/in/shashanktirandas/"
-
+    href="https://www.linkedin.com/in/shashanktirandas/"
+    
     target="_blank"
 
     rel="noreferrer"
