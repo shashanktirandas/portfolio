@@ -3602,12 +3602,23 @@ a.tech-chip:hover {
   font-size: 0.6rem;
 }
 
+
 .case-gallery-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   align-items: start;
   gap: clamp(1rem, 2.5vw, 2rem);
 }
+
+.case-gallery-item:first-child {
+  grid-column: 1 / -1;
+}
+
+.case-gallery-item:first-child img {
+  width: 100%;
+  height: auto;
+}
+
 
 .case-gallery-item {
   min-width: 0;
