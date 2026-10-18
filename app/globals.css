@@ -4318,3 +4318,35 @@ a.tech-chip:hover {
     width: 86%;
   }
 }
+
+/* Footer polish */
+.footer-brand {
+  transition: opacity 180ms ease;
+}
+
+.footer-brand:hover {
+  opacity: 0.78;
+}
+
+.footer-nav a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 36px;
+}
+
+.footer-nav a:focus-visible,
+.footer-socials a:focus-visible {
+  outline: 2px solid var(--copper);
+  outline-offset: 4px;
+}
+
+@media (max-width: 760px) {
+  .footer-socials a {
+    width: 42px;
+    height: 42px;
+  }
+
+  .footer-nav {
+    row-gap: 4px;
+  }
+}
