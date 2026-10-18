@@ -1069,6 +1069,11 @@ function ContactBotanical({
 }
 
 
+const projectPreviewImages: Record<string, string> = {
+  brd: "/p/brd-search.png",
+  "mrudula-ent-care": "/projects/mrudula-ent-care/home.png",
+};
+
 
 export default function HomePage() {
 
@@ -1421,15 +1426,23 @@ export default function HomePage() {
 
                 >
 
-                  <div className="project-image-placeholder">
+                 
+{projectPreviewImages[project.slug] ? (
+  <Image
+    src={projectPreviewImages[project.slug]}
+    alt={`${project.name} project screenshot`}
+    fill
+    sizes="(max-width: 760px) 100vw, 33vw"
+    className="project-card-screenshot"
+  />
+) : (
+  <div className="project-image-placeholder">
+    <Code2 size={32} strokeWidth={1.2} />
+    <span>{project.name}</span>
+    <small>PROJECT PREVIEW</small>
+  </div>
+)}
 
-  <Code2 size={32} strokeWidth={1.2} />
-
-  <span>{project.name}</span>
-
-  <small>PROJECT PREVIEW</small>
-
-</div>
 
                   <span className="project-image-arrow">
 

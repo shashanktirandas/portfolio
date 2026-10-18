@@ -4383,3 +4383,31 @@ a.tech-chip:hover {
     transition: none;
   }
 }
+
+
+/* Real screenshots inside project cards */
+.project-image {
+  isolation: isolate;
+  overflow: hidden;
+}
+
+.project-card-screenshot {
+  z-index: 1;
+  object-fit: cover;
+  object-position: top center;
+  transition: transform 450ms ease;
+}
+
+.project-image:hover .project-card-screenshot {
+  transform: scale(1.035);
+}
+
+.project-image-arrow {
+  z-index: 2;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .project-card-screenshot {
+    transition: none;
+  }
+}
