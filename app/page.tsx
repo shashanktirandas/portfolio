@@ -1193,9 +1193,12 @@ export default function HomePage() {
         <section className="hero">
           <div className="hero-copy">
             <p className="eyebrow">
-              FULL-STACK DEVELOPER <span>·</span> DESIGN THINKER
-              <span>·</span> PROBLEM SOLVER
-            </p>
+ 
+    FULL-STACK DEVELOPER <span>·</span> DESIGN THINKER
+    <span>·</span> PROBLEM SOLVER
+  
+  
+</p>
 
             <h1>
               Ideas deserve
